@@ -11,10 +11,12 @@ public class WelcomeWindow extends JFrame implements ActionListener {
     JButton startButton = new JButton("Почати");
     JButton listButton = new JButton("Список");
 
-    WelcomeWindow() {
-        JLabel label = new JLabel("Він пропонує випробувати ваші знання міст континенту, приймаєте виклик?");
+    WelcomeWindow(String text) {
+        JLabel label = new JLabel(text);
         label.setFont(new Font("Preciosa", Font.PLAIN, 25));
         label.setForeground(Color.ORANGE);
+        label.setVerticalAlignment(JLabel.CENTER);
+        label.setHorizontalAlignment(JLabel.CENTER);
 
         startButton.setFont(new Font("Preciosa", Font.PLAIN, 20));
         startButton.setFocusable(false);
@@ -26,30 +28,35 @@ public class WelcomeWindow extends JFrame implements ActionListener {
 
         JPanel panel = new JPanel();
         panel.setBackground(Color.DARK_GRAY);
+        panel.setBounds(15, 15, 750, 30);
+        panel.setLayout(new BorderLayout());
         panel.add(label);
 
         JPanel panelButton = new JPanel();
-//       panelButton.setBounds(370,70,100,30);
         panelButton.setBackground(Color.DARK_GRAY);
+        panelButton.setBounds(230, 60, 150, 30);
+        panelButton.setLayout(new BorderLayout());
         panelButton.add(startButton);
 
         JPanel listButtonPanel = new JPanel();
-//        listButtonPanel.setBounds(370,20,100,30);
         listButtonPanel.setBackground(Color.DARK_GRAY);
+        listButtonPanel.setBounds(430, 60, 150, 30);
+        listButtonPanel.setLayout(new BorderLayout());
         listButtonPanel.add(listButton);
 
-        this.setTitle("C.I.T.I.E.S");
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setResizable(true);
-        this.setSize(720, 150);
         this.add(panel);
         this.add(panelButton);
         this.add(listButtonPanel);
+
+        this.setTitle("C.I.T.I.E.S");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setSize(800, 150);
         this.getContentPane().setBackground(Color.DARK_GRAY);
         this.setLocationRelativeTo(null);
-        this.setLayout(new FlowLayout());
+        this.setLayout(null);
 
-        ImageIcon image = new ImageIcon("wolf.jpg");
+        ImageIcon image = new ImageIcon("city/src/main/java/com/app/resources/wolf.jpg");
         this.setIconImage(image.getImage());
         this.setVisible(true);
     }
@@ -65,7 +72,7 @@ public class WelcomeWindow extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == startButton) {
             this.dispose();
-            new GameWindow();
+            new GameWindow("Введіть назву міста");
         }
     }
 }

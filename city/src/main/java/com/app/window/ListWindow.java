@@ -42,9 +42,17 @@ public class ListWindow extends JFrame implements ActionListener {
         label6.setFont(new Font("Preciosa", Font.PLAIN, 30));
         label6.setForeground(Color.ORANGE);
 
-        JLabel label7 = new JLabel("Нойнройт, Оксенфурт, Оток, Понт Ваніс, Равелін, Рівія, Рідбрун, Рікверелін, Рінда, Роггевеїн");
+        JLabel label7 = new JLabel("Нойнройт, Оксенфурт, Оток, Понт Ваніс, Равелін, Рівія, Рідбрун, Рікверелін, Рінда, Роггевеїн, Cальм");
         label7.setFont(new Font("Preciosa", Font.PLAIN, 30));
         label7.setForeground(Color.ORANGE);
+
+        JLabel label8 = new JLabel("Сарда, Срібні Башти, Тегамо, Тіль, Третогор, Тридам, Трогір, Турн, Тифія, Фано, Флотзам, Форгехам");
+        label8.setFont(new Font("Preciosa", Font.PLAIN, 30));
+        label8.setForeground(Color.ORANGE);
+
+        JLabel label9 = new JLabel("Хенгфорс, Цидаріс, Цинтра, Егремон, Ейсенлаан, Елландер, Ест Тайяр, Ест Хемлет, Ямурлак, Ярсбор");
+        label9.setFont(new Font("Preciosa", Font.PLAIN, 30));
+        label9.setForeground(Color.ORANGE);
 
         this.add(label);
         this.add(label1);
@@ -54,16 +62,19 @@ public class ListWindow extends JFrame implements ActionListener {
         this.add(label5);
         this.add(label6);
         this.add(label7);
+        this.add(label8);
+        this.add(label9);
+
         this.setTitle("C.I.T.I.E.S");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1250, 600);
+        this.setSize(1260, 550);
         this.getContentPane().setBackground(Color.DARK_GRAY);
-        this.setResizable(false);
+        this.setResizable(false );
         this.setLayout(new FlowLayout());
         this.add(exit);
         this.setLocationRelativeTo(null);
 
-        ImageIcon image = new ImageIcon("wolf.jpg");
+        ImageIcon image = new ImageIcon("city/src/main/java/com/app/resources/wolf.jpg");
         this.setIconImage(image.getImage());
         this.setVisible(true);
     }
@@ -72,7 +83,7 @@ public class ListWindow extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == exit) {
             this.dispose();
-            new WelcomeWindow();
+            new WelcomeWindow("Він пропонує випробувати ваші знання міст континенту, приймаєте виклик?");
         }
     }
 }
