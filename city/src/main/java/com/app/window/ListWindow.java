@@ -30,7 +30,7 @@ public class ListWindow extends JFrame implements ActionListener {
         label3.setFont(new Font("Preciosa", Font.PLAIN, 30));
         label3.setForeground(Color.ORANGE);
 
-        JLabel label4 = new JLabel("Золотий сток, Івало, Іс, Іспаден, Каген, Калькар, Каравіста, Карбон, Каррерас, Кастель Граупіан");
+        JLabel label4 = new JLabel("Золотий сток, Івало, Іспаден, Ис, Каген, Калькар, Каравіста, Карбон, Каррерас, Кастель Граупіан");
         label4.setFont(new Font("Preciosa", Font.PLAIN, 30));
         label4.setForeground(Color.ORANGE);
 

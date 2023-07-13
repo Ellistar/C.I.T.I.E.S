@@ -66,8 +66,7 @@ public class LoginWindow extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String name = login.getText();
         if (name.length() == 0) {
-            this.dispose();
-            new LoginWindow("Спробуйте ще раз");
+            JOptionPane.showMessageDialog(null, "Ви не вказали своє ім'я!", "Помилка", JOptionPane.ERROR_MESSAGE);
         } else {
             USERNAME = name; // Збереження введеного імені користувача
             this.dispose();

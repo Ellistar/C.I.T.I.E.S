@@ -11,15 +11,14 @@ import java.util.Random;
 public class GameWindow extends JFrame implements ActionListener {
 
     private char lastLetter = ' ';
-    private char firstLetter = ' ';
-    private String computer = "Відьмак: ";
-    private String scoreText = "Ваш рахунок: ";
+    private final String computer = "Відьмак: ";
+    private final String scoreText = "Ваш рахунок: ";
     private final JTextField textField;
     private final JLabel label1;
     private final JLabel label2;
     private final List<String> cities = new ArrayList<>();
-    private List<String> usedCities = new ArrayList<>();
-    private Random random = new Random();
+    private final List<String> usedCities = new ArrayList<>();
+    private final Random random = new Random();
     private int score = 0;
     private boolean userTurn = true;
 
@@ -66,8 +65,8 @@ public class GameWindow extends JFrame implements ActionListener {
         cities.add("Задар");
         cities.add("Золотий сток");
         cities.add("Івало");
-        cities.add("Іс");
         cities.add("Іспаден");
+        cities.add("Ис");
         cities.add("Каген");
         cities.add("Калькар");
         cities.add("Каравіста");
@@ -205,7 +204,7 @@ public class GameWindow extends JFrame implements ActionListener {
     }
 
     private boolean isCityUsed(String city) {
-        return usedCities.contains(city.toLowerCase());
+        return !usedCities.contains(city.toLowerCase());
     }
 
     private boolean isValidCity(String city) {
@@ -221,7 +220,7 @@ public class GameWindow extends JFrame implements ActionListener {
         List<String> availableCities = new ArrayList<>();
 
         for (String city : cities) {
-            if (!isCityUsed(city)&&isLastLetterMatch(city)) {
+            if (isCityUsed(city) &&isLastLetterMatch(city)) {
                 availableCities.add(city);
             }
         }
@@ -256,12 +255,12 @@ public class GameWindow extends JFrame implements ActionListener {
         if (answer.equals("здаюсь")) {
             JOptionPane.showMessageDialog(null, "Гра завершена. Рахунок гравця "+ LoginWindow.USERNAME +": " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
             dispose(); // Закриття поточного вікна гри
-            new WelcomeWindow("Виберіть дію"); // Відкриття вікна "з вибором"
+            new WelcomeWindow("Бажаєте спробувати ще раз?"); // Відкриття вікна "з вибором"
         } else if (answer.length() == 0) {
             JOptionPane.showMessageDialog(null, "Введіть назву міста!", "Помилка", JOptionPane.ERROR_MESSAGE);
         } else {
             String validCity = null;
-            if (isValidCity(answer) && !isCityUsed(answer) && isLastLetterMatch(answer)) {
+            if (isValidCity(answer) && isCityUsed(answer) && isLastLetterMatch(answer)) {
                 validCity = answer;
                 usedCities.add(validCity.toLowerCase());
                 lastLetter = validCity.charAt(validCity.length() - 1);
@@ -278,12 +277,12 @@ public class GameWindow extends JFrame implements ActionListener {
                     usedCities.add(computerCity.toLowerCase());
                     userTurn = true; // Переключення черги ходів
                 } else {
-                    JOptionPane.showMessageDialog(null, "Гра завершена. Рахунок гравця "+ LoginWindow.USERNAME +": " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Ви перемогли! Рахунок гравця "+ LoginWindow.USERNAME +": " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
                     dispose(); // Закриття поточного вікна гри
-                    new WelcomeWindow("Виберіть дію"); // Відкриття вікна "з вибором"
+                    new WelcomeWindow("Бажаєте спробувати ще раз?"); // Відкриття вікна "з вибором"
                 }
             } else if (!userTurn && validCity != null) {
-                userTurn = !userTurn; // Переключення черги ходів
+                userTurn = true; // Переключення черги ходів
             }
         }
         textField.setText("");
