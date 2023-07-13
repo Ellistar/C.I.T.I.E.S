@@ -14,12 +14,10 @@ public class GameWindow extends JFrame implements ActionListener {
     private char firstLetter = ' ';
     private String computer = "Відьмак: ";
     private String scoreText = "Ваш рахунок: ";
-    private JButton submit;
-    private JTextField textField;
-    private JLabel label;
-    private JLabel label1;
-    private JLabel label2;
-    private List<String> cities = new ArrayList<>();
+    private final JTextField textField;
+    private final JLabel label1;
+    private final JLabel label2;
+    private final List<String> cities = new ArrayList<>();
     private List<String> usedCities = new ArrayList<>();
     private Random random = new Random();
     private int score = 0;
@@ -110,7 +108,7 @@ public class GameWindow extends JFrame implements ActionListener {
         cities.add("Сарда");
         cities.add("Срібні Башти");
         cities.add("Тегамо");
-        cities.add("Тіль");
+        cities.add("Тіл");
         cities.add("Третогор");
         cities.add("Тридам");
         cities.add("Трогір");
@@ -131,7 +129,7 @@ public class GameWindow extends JFrame implements ActionListener {
         cities.add("Ярсбор");
 
 
-        label = new JLabel(note);
+        JLabel label = new JLabel(note);
         label.setFont(new Font("Preciosa", Font.PLAIN, 25));
         label.setForeground(Color.ORANGE);
         label.setLayout(new FlowLayout());
@@ -146,7 +144,7 @@ public class GameWindow extends JFrame implements ActionListener {
         label2.setForeground(Color.ORANGE);
         label2.setLayout(new FlowLayout());
 
-        submit = new JButton("Зробити хід");
+        JButton submit = new JButton("Зробити хід");
         submit.setFont(new Font("Preciosa", Font.BOLD, 20));
         submit.setFocusable(false);
         submit.addActionListener(this);
@@ -276,9 +274,9 @@ public class GameWindow extends JFrame implements ActionListener {
                 String computerCity = getRandomCity(cities);
                 if (computerCity != null) {
                     label1.setText(computer + computerCity);
-                    usedCities.add(computerCity.toLowerCase());
                     lastLetter = computerCity.charAt(computerCity.length() - 1);
-                    userTurn = !userTurn; // Переключення черги ходів
+                    usedCities.add(computerCity.toLowerCase());
+                    userTurn = true; // Переключення черги ходів
                 } else {
                     JOptionPane.showMessageDialog(null, "Гра завершена. Рахунок гравця "+ LoginWindow.USERNAME +": " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
                     dispose(); // Закриття поточного вікна гри
