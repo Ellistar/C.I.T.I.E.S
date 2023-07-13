@@ -62,7 +62,7 @@ public class LoginWindow extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-         name = login.getText();
+        name = login.getText();
         if (name.length() == 0) {
             this.dispose();
             new LoginWindow("Спробуйте ще раз");
