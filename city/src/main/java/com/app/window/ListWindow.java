@@ -14,11 +14,11 @@ public class ListWindow extends JFrame implements ActionListener {
         exit.setFocusable(false);
         exit.addActionListener(this);
 
-        JLabel label = new JLabel("Альдерсберг, Амарільо, Ансегіс, Ард Каррайг, Армерія, Ассенгард, Аттре, Ашберг, Аедд Гінваель, Аен Даль");
+        JLabel label = new JLabel("Альдерсберг, Амарільо, Ансегіс, Ард Каррайг, Армерія, Ассенгард, Аттре, Ашберг, Аедд Гінваел, Аен Дал");
         label.setFont(new Font("Preciosa", Font.PLAIN, 30));
         label.setForeground(Color.ORANGE);
 
-        JLabel label1 = new JLabel("Бан Ард, Бельхавен, Бен Глеан, Блавікен, Боклер, Бондарь, Бремервоорд, Ваттвейр, Венгерберг, Верген");
+        JLabel label1 = new JLabel("Бан Ард, Бельхавен, Бен Глеан, Блавікен, Боклер, Бондар, Бремервоорд, Ваттвейр, Венгерберг, Верген");
         label1.setFont(new Font("Preciosa", Font.PLAIN, 30));
         label1.setForeground(Color.ORANGE);
 
@@ -38,7 +38,7 @@ public class ListWindow extends JFrame implements ActionListener {
         label5.setFont(new Font("Preciosa", Font.PLAIN, 30));
         label5.setForeground(Color.ORANGE);
 
-        JLabel label6 = new JLabel("Лірія, Лок Муінне, Маллеора, Марібор, Мехт, Муррівель, Напейс, Нарок, Нільфгаард, Новіград");
+        JLabel label6 = new JLabel("Лірія, Лок Муінне, Маллеора, Марібор, Мехт, Муррівел, Напейс, Нарок, Нільфгаард, Новіград");
         label6.setFont(new Font("Preciosa", Font.PLAIN, 30));
         label6.setForeground(Color.ORANGE);
 
