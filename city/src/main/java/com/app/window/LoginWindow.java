@@ -6,13 +6,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginWindow extends JFrame implements ActionListener {
+    public static String USERNAME = ""; // Додана публічна фінальна змінна для зберігання імені користувача
     JButton submit;
     JTextField login;
-    String name = "";
     JLabel label;
-    LoginWindow(String welcomeFraze) {
 
-        label = new JLabel(welcomeFraze);
+    LoginWindow(String welcomePhrase) {
+
+        label = new JLabel(welcomePhrase);
         label.setFont(new Font("Preciosa", Font.PLAIN, 25));
         label.setForeground(Color.ORANGE);
 
@@ -60,13 +61,15 @@ public class LoginWindow extends JFrame implements ActionListener {
         this.setIconImage(image.getImage());
         this.setVisible(true);
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        name = login.getText();
+        String name = login.getText();
         if (name.length() == 0) {
             this.dispose();
             new LoginWindow("Спробуйте ще раз");
         } else {
+            USERNAME = name; // Збереження введеного імені користувача
             this.dispose();
             new FirstEncounterFrame();
         }

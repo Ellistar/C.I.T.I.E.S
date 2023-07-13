@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Random;
 
 public class GameWindow extends JFrame implements ActionListener {
+
+    private String lastLetter = "";
+    private String firstLetter = "";
     private String computer = "Відьмак: ";
     private String scoreText = "Ваш рахунок: ";
     private JButton submit;
@@ -237,12 +240,19 @@ public class GameWindow extends JFrame implements ActionListener {
         label2.setText(scoreText + score);
     }
 
+    private boolean isLetterAvailable(String lastLetter, String firstLetter){
+        if (firstLetter.equalsIgnoreCase(lastLetter)){
+            return true;
+        }
+        return false;
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
         String answer = textField.getText();
         if (answer.equals("здаюсь")) {
-            JOptionPane.showMessageDialog(null, "Гра завершена. Ваш рахунок: " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Гра завершена. Рахунок гравця "+ LoginWindow.USERNAME +": " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
             dispose(); // Закриття поточного вікна гри
             new WelcomeWindow("Виберіть дію"); // Відкриття вікна "з вибором"
         } else if (answer.length() == 0) {
@@ -261,7 +271,7 @@ public class GameWindow extends JFrame implements ActionListener {
                     label1.setText(computer + computerCity);
                     usedCities.add(computerCity.toLowerCase());
                 } else {
-                    JOptionPane.showMessageDialog(null, "Гра завершена. Ваш рахунок: " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Гра завершена. Рахунок гравця "+ LoginWindow.USERNAME +": " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
                     dispose(); // Закриття поточного вікна гри
                     new WelcomeWindow("Виберіть дію"); // Відкриття вікна "з вибором"
                 }
@@ -277,7 +287,7 @@ public class GameWindow extends JFrame implements ActionListener {
                     label1.setText(computer + computerCity);
                     usedCities.add(computerCity.toLowerCase());
                 } else {
-                    JOptionPane.showMessageDialog(null, "Гра завершена. Ваш рахунок: " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Гра завершена. Рахунок гравця "+ LoginWindow.USERNAME +": " + score, "Кінець гри", JOptionPane.INFORMATION_MESSAGE);
                     dispose(); // Закриття поточного вікна гри
                     new WelcomeWindow("Виберіть дію"); // Відкриття вікна "з вибором"
                 }
